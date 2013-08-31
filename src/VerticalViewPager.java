@@ -1010,7 +1010,7 @@ public class VerticalViewPager extends ViewGroup {
                     2.f - curItem.heightFactor + (float) getPaddingTop() / (float) clientHeight;
 
             for (int pos = mCurItem - 1; pos >= 0; pos--) {
-            	if ((extraHeightLeft >= topHeightNeeded)) && pos < startPos) {
+            	if ((extraHeightLeft >= topHeightNeeded) && pos < startPos) {
                     if (ii == null) {
                         break;
                     }
@@ -1041,8 +1041,6 @@ public class VerticalViewPager extends ViewGroup {
             itemIndex = curIndex + 1;
             if(extraHeightBottom < 2.f) {
                 ii = itemIndex < mItems.size() ? mItems.get(itemIndex) : null;
-                final float rightWidthNeeded = clientWidth <= 0 ? 0 :
-                    (float) getPaddingRight() / (float) clientWidth + 2.f;
                 final float bottomHeightNeeded = clientHeight <= 0 ? 0 :
                     (float) getPaddingBottom() / (float) clientHeight + 2.f;
                 for (int pos = mCurItem + 1; pos < N; pos++) {
@@ -1093,7 +1091,7 @@ public class VerticalViewPager extends ViewGroup {
             final View child = getChildAt(i);
             final LayoutParams lp = (LayoutParams) child.getLayoutParams();
             lp.childIndex = i;
-            if(!lp.isDecor && (lp.heightFactor == 0.f))) {
+            if(!lp.isDecor && (lp.heightFactor == 0.f)) {
                 // 0 means requery the adapter for this, it doesn't have a valid width.
                 final ItemInfo ii = infoForChild(child);
                 if (ii != null) {
@@ -1149,7 +1147,7 @@ public class VerticalViewPager extends ViewGroup {
             if (oldCurPosition < curItem.position) {
                 int itemIndex = 0;
                 ItemInfo ii = null;
-                float offset = oldCurInfo.offset + oldCurInfo.heightFactor) + marginOffset;
+                float offset = oldCurInfo.offset + oldCurInfo.heightFactor + marginOffset;
                 for (int pos = oldCurPosition + 1;
                         pos <= curItem.position && itemIndex < mItems.size(); pos++) {
                     ii = mItems.get(itemIndex);
@@ -1180,7 +1178,7 @@ public class VerticalViewPager extends ViewGroup {
                     while (pos > ii.position) {
                         // We don't have an item populated for this,
                         // ask the adapter for an offset.
-                    	offset -= mAdapter.getPageHeight(pos)) + marginOffset;
+                    	offset -= mAdapter.getPageHeight(pos) + marginOffset;
                         pos--;
                     }
                     offset -= ii.heightFactor + marginOffset;
