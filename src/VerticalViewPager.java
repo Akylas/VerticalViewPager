@@ -1633,7 +1633,7 @@ public class VerticalViewPager extends ViewGroup {
 
             if (oldX != x || oldY != y) {
                 scrollTo(x, y);
-                if (!pageScrolled(x)) {
+                if (!pageScrolled(y)) {
                     mScroller.abortAnimation();
                     scrollTo(0, y);
                 }
